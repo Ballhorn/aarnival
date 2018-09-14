@@ -1,0 +1,94 @@
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+@import url('https://fonts.googleapis.com/css?family=Hind');
+
+
+.hidden{
+    visibility: hidden;
+}
+.transparent{
+    background:transparent;
+    position: fixed;
+    width:10vw;
+    height: 75vh;
+}
+h1{
+    color: black;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family:Hind;
+    letter-spacing:-13px;
+    font-weight: bolder;
+    font-size: calc(50% + 5vh);
+}
+.transition{
+    transition: visibility 0.3s;
+    -webkit-transition: visibility 0.3s; /* Safari */
+    -webkit-transition-delay: 0.3s; /* Safari */
+    transition-delay: 0.3s;
+} 
+.block{
+    height: 25vh;
+    margin: 0;
+}
+ 
+.blockHover{
+    height: calc(50vh / 3);
+    margin: 0;
+}
+.blockHover:hover{
+    height: 50vh;
+}
+.blocks{
+    -webkit-transition: height 0.3s; /* Safari */
+    transition: height 0.3s;
+}
+.blockContent{
+    width:100vw;
+    height: 100%;
+}
+.one{
+    color:black;
+    background-color:white;
+}
+.two{
+    color:black;
+    background-color: #ffc800;
+}
+.three{
+    color:black;
+    background-color: white;
+}
+.four{
+    color:white;
+    background-color: black;
+}
+
+.header{
+    font-size: calc(50% + 1.5vw);
+}
+p,a,.header{
+    font-family:Hind;
+}
+a{
+    color:white;
+    margin-bottom:16px;
+}
+a:hover{
+    color: #ffc800;
+    text-decoration:none;
+}
+.black, .black:hover{
+    color:black;
+}
+.vcenter {
+    margin-top: 50%;
+}
+.textCol{
+    text-align: center;
+    font-size: calc(50% + 0.7vw);
+    padding:0;
+}
+
+body{
+    background-color: black;
+}

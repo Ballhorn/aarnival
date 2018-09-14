@@ -1,0 +1,28 @@
+{
+  "name": "aarnival",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "es6-promise": "^4.1.1",
+    "from": "^0.1.7",
+    "npm": "^5.5.1",
+    "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dnd": "^2.5.4",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-scripts": "^1.1.5",
+    "reactstrap": "^5.0.0-alpha.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "redux-devtools": "^3.4.0"
+  }
+}
