@@ -13,6 +13,11 @@ class LandingPage extends React.Component {
         super(props);
         this.state = {
           hover:false,
+          block:[
+            {name:"one", header:"Tiedonhallinta ja analytiikka"},
+            {name:"two", header:"Sovelluskehitys"},
+            {name:"three", header:"Referenssit"},
+            {name:"four", header:"Yhteystiedot"}]
         };
         this.clickBlock = this.clickBlock.bind(this);
         this.handleIn = this.handleIn.bind(this);
@@ -39,24 +44,22 @@ class LandingPage extends React.Component {
           });
         }
       }
+      rows(){
+        return(
+          this.state.block.map((a) => (
+            <Row  className={!this.state.hover ? a.name+" block blocks align-items-center": a.name+" blockHover blocks align-items-center"} name={a.name}>
+              <Block status={this.state.hover} block={a.name} header={a.header}/>
+            </Row>
+          ))
+        )
+      }
   render() {
 
     return (
         <div>
         <NavbarBrand className="transparent" href="/"><h1>AARNIVAL</h1></NavbarBrand>
         <div onMouseOver={this.handleIn} onMouseOut={this.handleOut}  onClick={this.clickBlock}>
-              <Row  className={!this.state.hover ? "one block blocks align-items-center":"one blockHover blocks align-items-center"} name="one">
-                <Block status={this.state.hover} block="one" header="Tiedonhallinta ja analytiikka"/>
-              </Row>
-              <Row  className={!this.state.hover ? "two block blocks align-items-center":"two blockHover blocks align-items-center"} name="two">
-                <Block status={this.state.hover} block="two" header="Sovelluskehitys"/>
-              </Row>
-              <Row  className={!this.state.hover ? "three block blocks align-items-center":"three blockHover blocks align-items-center"} name="three">
-                <Block status={this.state.hover} block="three" header="Referenssit"/>
-              </Row>
-              <Row  className={!this.state.hover ? "four block blocks align-items-center":"four blockHover blocks align-items-center"} name="four">
-                <Block status={this.state.hover} block="four" header="Yhteystiedot"/>
-              </Row>
+              {this.rows()}
         </div>
         </div>
     );
