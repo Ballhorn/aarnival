@@ -5,14 +5,13 @@
  */
 import React from 'react';
 import inka from '../img/inka.png';
-import { Col} from 'reactstrap';
 
 
 class Block extends React.Component {
   constructor(props) {
         super(props);
         this.state = {
-          hover:false,
+          active:this.props.active
         };
         this.handleIn = this.handleIn.bind(this);
         this.handleOut = this.handleOut.bind(this);
@@ -20,25 +19,37 @@ class Block extends React.Component {
       }
       clickBlock(){
         if(window.innerWidth<=768){
-          this.setState({
-            hover:!this.state.hover
-          });
+          if(this.props.active===this.props.block){
+            this.props.activeBlock("");
+          }else{
+            this.props.activeBlock(this.props.block);
+          }
         }
       }
       handleIn(){
         if(window.innerWidth>768){
-          this.setState({
-            hover:!this.state.hover
-          });
+          this.props.activeBlock(this.props.block);
         }
       }
       handleOut(){
         if(window.innerWidth>768){
-          this.setState({
-            hover:!this.state.hover
-          });
+            this.props.activeBlock("");
         }
       }
+  placement(){
+    switch(this.props.block){
+      case "one":
+        return ""
+      case "two":
+        return "justify-content-end"
+      case "three":
+        return "justify-content-end align-items-end"
+      case "four":
+        return "align-items-end"
+        default: return;
+    }
+  
+  }
   content(){
     switch(this.props.block){
       case "one":
@@ -46,7 +57,7 @@ class Block extends React.Component {
         <div>
           <p>Moderni ja kustannustehokas</p>
           <p>tiedonhallintaratkaisu</p>
-          <p> yrityksesi tarpeisiin.</p>
+          <p> yrityksesi tarpeisiin</p>
         </div>
         )
       case "two":
@@ -54,7 +65,7 @@ class Block extends React.Component {
         <div>
           <p>Ammattitaitoista</p>
           <p>sovelluskehitystä</p>
-          <p>AWS-ympäristössä.</p>
+          <p>AWS-ympäristössä</p>
         </div>
         )
       case "three":
@@ -78,17 +89,13 @@ class Block extends React.Component {
   }
   
   render() {
-    
     return (
-        <div className="blockContent d-flex justify-content-between align-items-center" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
-            <Col></Col>
-            <Col className={this.state.hover ? "textCol transition" : "textCol hidden"}>
-              {this.content()}
-            </Col>
-            <Col className="text-right" >
-              <h2 className="header">{this.props.header}</h2>
-            </Col>
+      <div  className={"d-flex blockWrapper "+this.placement()} onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
+        <div className={this.props.active===this.props.block ? "textCol transition" : "textCol hidden"}>
+          <h2 className="header">{this.props.header}</h2>
+          {this.content()}
         </div>
+      </div>
     );
   }
 };

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 import React from 'react'
-import Block from './Block'
+import Blocks from './Blocks'
 import { Row, NavbarBrand } from 'reactstrap'
 
 
@@ -13,55 +13,41 @@ class LandingPage extends React.Component {
         super(props);
         this.state = {
           hover:false,
+          active:"",
           block:[
             {name:"one", header:"Tiedonhallinta ja analytiikka"},
             {name:"two", header:"Sovelluskehitys"},
             {name:"three", header:"Referenssit"},
             {name:"four", header:"Yhteystiedot"}]
         };
-        this.clickBlock = this.clickBlock.bind(this);
-        this.handleIn = this.handleIn.bind(this);
-        this.handleOut = this.handleOut.bind(this);
+        this.activeBlock = this.activeBlock.bind(this);
       }
-      clickBlock(){
-        if(window.innerWidth<=768){
+      activeBlock(block){
+          if(block===""){
+            this.setState({
+              hover:false
+            });
+          }else{
+            this.setState({
+              hover:true
+            });
+          }
           this.setState({
-            hover:!this.state.hover
+            active:block
           });
-        }
-      }
-      handleIn(){
-        if(window.innerWidth>768){
-          this.setState({
-            hover:!this.state.hover
-          });
-        }
-      }
-      handleOut(){
-        if(window.innerWidth>768){
-          this.setState({
-            hover:!this.state.hover
-          });
-        }
-      }
-      rows(){
-        return(
-          this.state.block.map((a) => (
-            <Row  className={!this.state.hover ? a.name+" block blocks align-items-center": a.name+" blockHover blocks align-items-center"} name={a.name}>
-              <Block status={this.state.hover} block={a.name} header={a.header}/>
-            </Row>
-          ))
-        )
       }
   render() {
 
     return (
-        <div>
-        <NavbarBrand className="transparent" href="/"><h1>AARNIVAL</h1></NavbarBrand>
-        <div onMouseOver={this.handleIn} onMouseOut={this.handleOut}  onClick={this.clickBlock}>
-              {this.rows()}
-        </div>
-        </div>
+      <div>
+        <NavbarBrand className="largeLogo" href="/"><h1 className="blackWhite">AARNIVAL</h1></NavbarBrand>
+        <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="one" || this.state.active==="two") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
+          <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[0],this.state.block[1]]} hover={(this.state.active==="one" || this.state.active==="two") ? true : false}/>
+        </Row>
+        <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="three" || this.state.active==="four") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
+          <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[3],this.state.block[2]]} hover={(this.state.active==="three" || this.state.active==="four") ? true : false}/>
+        </Row>
+      </div>
     );
   }
 }
