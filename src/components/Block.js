@@ -68,14 +68,14 @@ class Block extends React.Component {
           <p>AWS-ympäristössä</p>
         </div>
         )
-      case "three":
+      case "four":
         return (
-        <div>
+        <div className="marginTop">
           <a href="https://www.inkadw.com"><img src={inka} alt="InkaDW logo" id="inkalogo" className="w-25"/></a>
           <p><a className="black" href="https://www.inkadw.com">Pilvitietovarasto</a></p>
         </div>
         )
-      case "four":
+      case "three":
         return (
         <div>
           <p>P. 050 378 0010</p>
@@ -90,10 +90,10 @@ class Block extends React.Component {
   
   render() {
     return (
-      <div  className={"d-flex blockWrapper "+this.placement()} onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
+      <div  className="d-flex blockWrapper align-items-center justify-content-center" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
         <div className={this.props.active===this.props.block ? "textCol transition" : "textCol hidden"}>
-          <h2 className="header">{this.props.header}</h2>
-          {this.content()}
+          <h2 className={(window.innerWidth<=768 && this.props.active==="") ? "header visible transition" :"header"}>{this.props.header}</h2>
+          <div className={this.props.active==="" ? "content" : ""}>{this.content()}</div>
         </div>
       </div>
     );

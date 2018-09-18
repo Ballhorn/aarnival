@@ -15,10 +15,10 @@ class LandingPage extends React.Component {
           hover:false,
           active:"",
           block:[
-            {name:"one", header:"Tiedonhallinta ja analytiikka"},
+            {name:"one", header:"Tiedonhallinta"},
             {name:"two", header:"Sovelluskehitys"},
-            {name:"three", header:"Referenssit"},
-            {name:"four", header:"Yhteystiedot"}]
+            {name:"three", header:"Yhteystiedot"},
+            {name:"four", header:"Referenssit"}]
         };
         this.activeBlock = this.activeBlock.bind(this);
       }
@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
 
     return (
       <div>
-        <NavbarBrand className="largeLogo" href="/"><h1 className="blackWhite">AARNIVAL</h1></NavbarBrand>
+        <NavbarBrand className="largeLogo" href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
         <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="one" || this.state.active==="two") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
           <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[0],this.state.block[1]]} hover={(this.state.active==="one" || this.state.active==="two") ? true : false}/>
         </Row>
