@@ -8,8 +8,12 @@
 .visible{
     visibility: visible;
 }
-.marginTop{
-    margin-top:5.5vh;
+.headerWrapper{
+    height:35%;
+    padding-bottom: 10px;
+}
+.contentWrapper{
+    height:65%;
 }
 .largeLogo{
     position: fixed;
@@ -128,6 +132,7 @@ a:hover{
 .textCol{
     font-size: calc(50% + 0.7vw);
     padding:0;
+    height:100%;
 }
 
 body{

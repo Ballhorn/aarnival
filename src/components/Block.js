@@ -70,7 +70,7 @@ class Block extends React.Component {
         )
       case "four":
         return (
-        <div className="marginTop">
+        <div>
           <a href="https://www.inkadw.com"><img src={inka} alt="InkaDW logo" id="inkalogo" className="w-25"/></a>
           <p><a className="black" href="https://www.inkadw.com">Pilvitietovarasto</a></p>
         </div>
@@ -92,7 +92,9 @@ class Block extends React.Component {
     return (
       <div  className="d-flex blockWrapper align-items-center justify-content-center" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
         <div className={this.props.active===this.props.block ? "textCol transition" : "textCol hidden"}>
-          <h2 className={(window.innerWidth<=768 && this.props.active==="") ? "header visible transition" :"header"}>{this.props.header}</h2>
+          <div className="headerWrapper d-flex align-items-end justify-content-center">
+            <h2 className={(window.innerWidth<=768 && this.props.active==="") ? "header visible transition" :"header"}>{this.props.header}</h2>
+          </div>
           <div className={this.props.active==="" ? "content" : ""}>{this.content()}</div>
         </div>
       </div>
