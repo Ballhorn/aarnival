@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import inka from '../img/inka.png';
-
+import {isBrowser, isMobile} from "react-device-detect";
 
 class Block extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Block extends React.Component {
         this.clickBlock = this.clickBlock.bind(this);
       }
       clickBlock(){
-        if(window.innerWidth<=768){
+        if(isMobile){
           if(this.props.active===this.props.block){
             this.props.activeBlock("");
           }else{
@@ -27,12 +27,12 @@ class Block extends React.Component {
         }
       }
       handleIn(){
-        if(window.innerWidth>768){
+        if(isBrowser){
           this.props.activeBlock(this.props.block);
         }
       }
       handleOut(){
-        if(window.innerWidth>768){
+        if(isBrowser){
             this.props.activeBlock("");
         }
       }
@@ -64,8 +64,8 @@ class Block extends React.Component {
         return (
         <div>
           <p>Ammattitaitoista</p>
-          <p>sovelluskehitystä</p>
-          <p>AWS-ympäristössä</p>
+          <p>sovelluskehitystÃ¤</p>
+          <p>AWS-ympÃ¤ristÃ¶ssÃ¤</p>
         </div>
         )
       case "four":
@@ -92,9 +92,9 @@ class Block extends React.Component {
     return (
       <div  className="d-flex blockWrapper align-items-center justify-content-center" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
         <div className={this.props.active===this.props.block ? "textCol transition" : "textCol hidden"}>
-          <div className="headerWrapper d-flex align-items-end justify-content-center">
-            <h2 className={(window.innerWidth<=768 && this.props.active==="") ? "header visible transition" :"header"}>{this.props.header}</h2>
-          </div>
+		<div className="headerWrapper d-flex align-items-end justify-content-center">
+            		<h2 className={isMobile ? this.props.active==="" ? "header visible transition" : "header hidden" :"header"}>{this.props.header}</h2>
+          	</div>
           <div className={this.props.active==="" ? "content" : ""}>{this.content()}</div>
         </div>
       </div>

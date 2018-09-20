@@ -6,6 +6,7 @@
 import React from 'react'
 import Blocks from './Blocks'
 import { Row, NavbarBrand } from 'reactstrap'
+import {isMobile} from "react-device-detect";
 
 
 class LandingPage extends React.Component {
@@ -40,7 +41,7 @@ class LandingPage extends React.Component {
 
     return (
       <div>
-        <NavbarBrand className="largeLogo" href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
+        <NavbarBrand className={(isMobile ? "smallLogo " : "")+"largeLogo"} href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
         <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="one" || this.state.active==="two") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
           <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[0],this.state.block[1]]} hover={(this.state.active==="one" || this.state.active==="two") ? true : false}/>
         </Row>

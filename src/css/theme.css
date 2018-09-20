@@ -12,9 +12,6 @@
     height:35%;
     padding-bottom: 10px;
 }
-.contentWrapper{
-    height:65%;
-}
 .largeLogo{
     position: fixed;
     background:transparent;
@@ -27,17 +24,14 @@
     background:transparent;
     color:white;
     font-family:Hind;
-    font-size: calc(50% + 2vw);
+    font-size: calc(50% + 4vw);
     margin:0;
 }
-.transparent{
-    color: black;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    font-family:Hind;
-    letter-spacing:-13px;
-    font-weight: bolder;
-    font-size: calc(50% + 5vh);
+.smallLogo{
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 2vw !important;
+    margin-bottom:0;
 }
 .blocks{
     -webkit-transition: height 0.3s,width 0.3s; /* Safari */
@@ -54,20 +48,24 @@
 } 
 .block{
     height: 25vh;
+    height: calc(var(--vh, 1vh) * 25);
     margin: 0;
 }
 .blockRow{
     height: 50vh;
+    height: calc(var(--vh, 1vh) * 50);
     width: 100vw;
     margin: 0;
 }
 .blockRowHover{
     height: 25vh;
+    height: calc(var(--vh, 1vh) * 25);
     width: 100vw;
     margin: 0;
 }
 .blockRowHoverHover{
     height: 75vh;
+    height: calc(var(--vh, 1vh) * 75);
     width: 100vw;
     margin: 0;
 }
@@ -78,18 +76,15 @@
 }
 .blockColHover{
     width:25vw;
+    height: calc(var(--vh, 1vh) * 25);
     height:100%;
     padding: 0;
 }
 .blockColHoverHover{
     width:75vw;
+    height: calc(var(--vh, 1vh) * 75);
     height:100%;
     padding: 0;
-}
-
-.blockContent{
-    width:100vw;
-    height: 100%;
 }
 .one{
     color:white;
@@ -112,7 +107,8 @@
     text-align:center
 }
 .header{
-    font-size: calc(50% + 1.5vw);
+    font-size: calc(50% + 1.3vw);
+    font-weight:bold;
     padding:0;
 }
 p,a,.header{
@@ -133,10 +129,12 @@ a:hover{
     font-size: calc(50% + 0.7vw);
     padding:0;
     height:100%;
+    font-weight:bold;
 }
 
 body{
     background-color: black;
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 }
