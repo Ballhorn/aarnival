@@ -21,7 +21,7 @@ class Blocks extends React.Component {
   render() {
     
     return (
-        <div className="d-flex" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
+        <div className="d-flex fullWidth" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
             <div className={(!this.props.hover ? this.props.blocks[0].name+" blockCol" : this.props.blocks[0].name+((this.props.active==="one" || this.props.active==="four") ? " blockColHoverHover" : " blockColHover"))+" blocks"}>
                 <Block active={this.props.active} block={this.props.blocks[0].name} header={this.props.blocks[0].header} activeBlock={this.activeBlock}/>
             </div>

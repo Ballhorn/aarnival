@@ -15,6 +15,7 @@ class LandingPage extends React.Component {
         this.state = {
           hover:false,
           active:"",
+          orientation:window.orientation,
           block:[
             {name:"one", header:"Tiedonhallinta"},
             {name:"two", header:"Sovelluskehitys"},
@@ -22,6 +23,7 @@ class LandingPage extends React.Component {
             {name:"four", header:"Referenssit"}]
         };
         this.activeBlock = this.activeBlock.bind(this);
+        this.listenOrientation = this.listenOrientation.bind(this);
       }
       activeBlock(block){
           if(block===""){
@@ -37,10 +39,18 @@ class LandingPage extends React.Component {
             active:block
           });
       }
+      listenOrientation(){
+        let self=this;
+        window.addEventListener("orientationchange", function() {
+          self.setState({
+            orientation:window.screen.orientation
+          });
+      });
+      }
   render() {
-
+    this.listenOrientation();
     return (
-      <div>
+      <div className="fullHeight">
         <NavbarBrand className={(isMobile ? "smallLogo " : "")+"largeLogo"} href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
         <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="one" || this.state.active==="two") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
           <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[0],this.state.block[1]]} hover={(this.state.active==="one" || this.state.active==="two") ? true : false}/>

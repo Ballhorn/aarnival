@@ -64,8 +64,8 @@ class Block extends React.Component {
         return (
         <div>
           <p>Ammattitaitoista</p>
-          <p>sovelluskehitystÃ¤</p>
-          <p>AWS-ympÃ¤ristÃ¶ssÃ¤</p>
+          <p>sovelluskehitystä</p>
+          <p>AWS-ympäristössä</p>
         </div>
         )
       case "four":
