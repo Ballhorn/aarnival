@@ -17,10 +17,10 @@ class LandingPage extends React.Component {
           active:"",
           orientation:window.orientation,
           block:[
-            {name:"one", header:"Tiedonhallinta"},
-            {name:"two", header:"Sovelluskehitys"},
+            {name:"one", header:"Talousohjatut"},
+            {name:"two", header:"Digitaaliset palvelut"},
             {name:"three", header:"Yhteystiedot"},
-            {name:"four", header:"Referenssit"}]
+            {name:"four", header:"Pilviympäristössä"}]
         };
         this.activeBlock = this.activeBlock.bind(this);
         this.listenOrientation = this.listenOrientation.bind(this);

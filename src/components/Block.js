@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 import React from 'react';
-import inka from '../img/inka.png';
 import {isBrowser, isMobile} from "react-device-detect";
 
 class Block extends React.Component {
@@ -55,24 +54,25 @@ class Block extends React.Component {
       case "one":
         return (
         <div>
-          <p>Moderni ja kustannustehokas</p>
-          <p>tiedonhallintaratkaisu</p>
-          <p> yrityksesi tarpeisiin</p>
+          <p>Arkkitehtuuriratkaisut,</p>
+          <p>joiden kustannusrakenne</p>
+          <p>vastaa liiketoimintaa</p>
         </div>
         )
       case "two":
         return (
         <div>
-          <p>Ammattitaitoista</p>
-          <p>sovelluskehitystä</p>
-          <p>AWS-ympäristössä</p>
+          <p>Sovelluskehityksestä</p>
+          <p>automatisoituun</p>
+          <p>liiketoiminta-analytiikkaan</p>
         </div>
         )
       case "four":
         return (
         <div>
-          <a href="https://www.inkadw.com"><img src={inka} alt="InkaDW logo" id="inkalogo" className="w-25"/></a>
-          <p><a className="black" href="https://www.inkadw.com">Pilvitietovarasto</a></p>
+          <p>Varmistat</p>
+          <p>skaalautuvuuden</p>
+          <p>sitomatta pääomaa</p>
         </div>
         )
       case "three":
