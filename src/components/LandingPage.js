@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
           active:"",
           orientation:window.orientation,
           block:[
-            {name:"one", header:"Talousohjatut"},
+            {name:"one", header:"Kustannusmallinnetut"},
             {name:"two", header:"Digitaaliset palvelut"},
             {name:"three", header:"Yhteystiedot"},
             {name:"four", header:"Pilviympäristössä"}]

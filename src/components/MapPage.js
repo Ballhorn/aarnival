@@ -4,40 +4,19 @@
  * and open the template in the editor.
  */
 import React from 'react'
-import Blocks from './Blocks'
 import { Row, NavbarBrand } from 'reactstrap'
 import {isMobile} from "react-device-detect";
 
 
-class LandingPage extends React.Component {
+class MapPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
           hover:false,
           active:"",
-          orientation:window.orientation,
-          block:[
-            {name:"one", header:"Talousohjatut"},
-            {name:"two", header:"Digitaaliset palvelut"},
-            {name:"three", header:"Yhteystiedot"},
-            {name:"four", header:"Pilviympäristössä"}]
+          orientation:window.orientation
         };
-        this.activeBlock = this.activeBlock.bind(this);
         this.listenOrientation = this.listenOrientation.bind(this);
-      }
-      activeBlock(block){
-          if(block===""){
-            this.setState({
-              hover:false
-            });
-          }else{
-            this.setState({
-              hover:true
-            });
-          }
-          this.setState({
-            active:block
-          });
       }
       listenOrientation(){
         let self=this;
@@ -52,11 +31,23 @@ class LandingPage extends React.Component {
     return (
       <div className="fullHeight">
         <NavbarBrand className={(isMobile ? "smallLogo " : "")+"largeLogo"} href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
-        <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="one" || this.state.active==="two") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
-          <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[0],this.state.block[1]]} hover={(this.state.active==="one" || this.state.active==="two") ? true : false}/>
+        <Row className="mapTopBottomRow">
+          <div className="d-flex fullWidth top">
+            <h4>Kustannusmallinnetut digitaaliset palvelut pilviympäristössä</h4>
+          </div>
         </Row>
-        <Row className={(!this.state.hover ? "blockRow" : ((this.state.active==="three" || this.state.active==="four") ? "blockRowHoverHover" : "blockRowHover"))+" blocks"}>
-          <Blocks activeBlock={this.activeBlock} active={this.state.active} blocks={[this.state.block[3],this.state.block[2]]} hover={(this.state.active==="three" || this.state.active==="four") ? true : false}/>
+        <Row className="mapMiddleRow">
+          <div className="d-flex fullWidth">
+            <div className="blockCol midLeft">
+            </div>
+            <div className="blockCol midRight">
+            </div>
+          </div>
+        </Row>
+        <Row className="mapTopBottomRow">
+          <div className="d-flex fullWidth bottom">
+            <h4>API-yhteyttä varten ota yhteyttä <a href="mailto:info@aarnival.fi">info@aarnival.fi</a></h4>
+          </div>
         </Row>
       </div>
     );
@@ -64,4 +55,4 @@ class LandingPage extends React.Component {
 }
 
 
-export default LandingPage;
+export default MapPage;
