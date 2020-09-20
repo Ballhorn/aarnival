@@ -3,8 +3,7 @@ import './css/theme.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import LandingPage from './components/LandingPage'
 import MapPage from './components/MapPage'

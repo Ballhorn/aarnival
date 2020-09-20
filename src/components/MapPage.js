@@ -31,22 +31,23 @@ class MapPage extends React.Component {
     return (
       <div className="fullHeight">
         <NavbarBrand className={(isMobile ? "smallLogo " : "")+"largeLogo"} href="/"><h1 className="blackWhite">Aarnival</h1></NavbarBrand>
-        <Row className="mapTopBottomRow">
+        <Row className="mapTopRow">
           <div className="d-flex fullWidth top">
-            <h4>Kustannusmallinnetut digitaaliset palvelut pilviympäristössä</h4>
           </div>
         </Row>
         <Row className="mapMiddleRow">
-          <div className="d-flex fullWidth">
-            <div className="blockCol midLeft">
+            <div className="d-flex blockCol midLeft">
+              <h3>Muotokartta Suomen alueista</h3>
+              <p>Valitse sopiva kartta ja rajaa haluamasi alueet.</p>
+              <p>API-yhteyttä varten ota yhteys <a href="mailto:info@aarnival.fi">info@aarnival.fi</a></p>
             </div>
-            <div className="blockCol midRight">
+            <div className="d-flex blockCol midRight">
+              <p>Valitse sopiva kartta ja rajaa haluamasi alueet.</p>
             </div>
-          </div>
         </Row>
-        <Row className="mapTopBottomRow">
+        <Row className="mapBottomRow">
           <div className="d-flex fullWidth bottom">
-            <h4>API-yhteyttä varten ota yhteyttä <a href="mailto:info@aarnival.fi">info@aarnival.fi</a></h4>
+            <p>© Aarnival Oy 2020</p>
           </div>
         </Row>
       </div>

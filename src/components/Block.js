@@ -54,7 +54,7 @@ class Block extends React.Component {
       case "one":
         return (
         <div>
-          <p>Arkkitehtuuriratkaisut,</p>
+          <p>arkkitehtuuriratkaisut,</p>
           <p>joiden kustannusrakenne</p>
           <p>vastaa liiketoimintaa</p>
         </div>
@@ -62,7 +62,7 @@ class Block extends React.Component {
       case "two":
         return (
         <div>
-          <p>Sovelluskehityksestä</p>
+          <p>sovelluskehityksestä</p>
           <p>automatisoituun</p>
           <p>liiketoiminta-analytiikkaan</p>
         </div>
@@ -70,7 +70,7 @@ class Block extends React.Component {
       case "four":
         return (
         <div>
-          <p>Varmistat</p>
+          <p>varmistat</p>
           <p>skaalautuvuuden</p>
           <p>sitomatta pääomaa</p>
         </div>
@@ -80,7 +80,7 @@ class Block extends React.Component {
         <div>
           <p>P. 050 378 0010</p>
           <p>PL 71 02101 Espoo</p>
-          <a href="mailto:info@aarnival.fi">info@aarnival.fi</a>
+          <p><a href="mailto:info@aarnival.fi">info@aarnival.fi</a></p>
         </div>
         )
         default: return;
