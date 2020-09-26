@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 import React from 'react'
-import { Row, NavbarBrand } from 'reactstrap'
+import { Row, NavbarBrand, Dropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap'
 import {isMobile} from "react-device-detect";
 
 
@@ -14,9 +14,13 @@ class MapPage extends React.Component {
         this.state = {
           hover:false,
           active:"",
+          dropdownOpen:false,
+          dropdown: 'Valitse karttatyyppi',
           orientation:window.orientation
         };
         this.listenOrientation = this.listenOrientation.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.dropdownClick = this.dropdownClick.bind(this);
       }
       listenOrientation(){
         let self=this;
@@ -25,6 +29,18 @@ class MapPage extends React.Component {
             orientation:window.screen.orientation
           });
       });
+      }
+      toggle(){
+        this.setState({
+          dropdownOpen:!this.state.dropdownOpen
+        });
+      }
+      dropdownClick(event) {
+        const value=event.target.innerText;
+        this.setState({
+          dropdown: value,
+          dropdownOpen: !this.state.dropdownOpen
+        });
       }
   render() {
     this.listenOrientation();
@@ -38,8 +54,17 @@ class MapPage extends React.Component {
         <Row className="mapMiddleRow">
             <div className="d-flex blockCol midLeft">
               <h3>Muotokartta Suomen alueista</h3>
-              <p>Valitse sopiva kartta ja rajaa haluamasi alueet.</p>
-              <p>API-yhteyttä varten ota yhteys <a href="mailto:info@aarnival.fi">info@aarnival.fi</a></p>
+                  <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <DropdownToggle caret>
+                      {this.state.dropdown}
+                      </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={this.dropdownClick}>Postinumeroalue</DropdownItem>
+                      <DropdownItem onClick={this.dropdownClick}>Postinumeroalue (<a href="https://github.com/duukkis/postalcodes">duukkis</a>)</DropdownItem>
+                      <DropdownItem onClick={this.dropdownClick}>Kunta</DropdownItem>
+                      <DropdownItem onClick={this.dropdownClick}>Maakunta</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
             </div>
             <div className="d-flex blockCol midRight">
               <p>Valitse sopiva kartta ja rajaa haluamasi alueet.</p>
