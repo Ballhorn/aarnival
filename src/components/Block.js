@@ -91,7 +91,7 @@ class Block extends React.Component {
   render() {
     return (
       <div  className="d-flex blockWrapper align-items-center justify-content-center" onMouseOver={this.handleIn} onMouseOut={this.handleOut} onClick={this.clickBlock}>
-        <div className={this.props.active===this.props.block ? "textCol transition" : "textCol hidden"}>
+        <div className={this.props.active===this.props.block ? "textCol transition visible > div > h2" : "textCol hidden"}>
 		<div className="headerWrapper d-flex align-items-end justify-content-center">
             		<h2 className={isMobile ? this.props.active==="" ? "header visible transition" : "header hidden" :"header"}>{this.props.header}</h2>
           	</div>

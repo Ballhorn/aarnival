@@ -6,7 +6,6 @@ import {
   Route
 } from "react-router-dom";
 import LandingPage from './components/LandingPage'
-import MapPage from './components/MapPage'
 
 class App extends Component {
   render() {
@@ -15,9 +14,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             <LandingPage />
-          </Route>
-          <Route path="/postinumerokartta">
-            <MapPage />
           </Route>
         </Switch>
       </Router>
